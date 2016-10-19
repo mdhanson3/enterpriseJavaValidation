@@ -19,7 +19,7 @@
       <url-pattern>/admin/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>admin</role-name>
+      <role-name>administrator</role-name>
     </auth-constraint>
   </security-constraint>
 
