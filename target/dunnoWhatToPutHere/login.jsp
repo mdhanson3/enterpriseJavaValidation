@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  entity.User: student
   Date: 10/9/16
   Time: 4:29 PM
   To change this template use File | Settings | File Templates.
@@ -16,7 +16,7 @@ Dis where you login
 
 <FORM ACTION="j_security_check" METHOD="POST">
     <TABLE>
-        <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
+        <TR><TD>entity.User name: <INPUT TYPE="TEXT" NAME="j_username">
         <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
         <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
     </TABLE>

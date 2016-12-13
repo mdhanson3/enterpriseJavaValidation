@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  entity.User: student
   Date: 10/9/16
   Time: 4:55 PM
   To change this template use File | Settings | File Templates.
