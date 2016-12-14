@@ -3,9 +3,11 @@ package persistence;
 import entity.User;
 import entity.UsersRoles;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -25,7 +27,10 @@ public class UserDao {
 
     public User getUserByName(String userName) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        User user = (User) session.get(User.class, userName);
+
+        Criteria criteria = session.createCriteria(User.class);
+        User user = (User) criteria.add(Restrictions.eq("userName", userName)).uniqueResult();
+
         return user;
     }
     public int addUser(User user) {
@@ -51,7 +56,7 @@ public class UserDao {
             session.close();
         }
 
-        return userId;
+        return (int) userId;
         //return 0;
     }
 

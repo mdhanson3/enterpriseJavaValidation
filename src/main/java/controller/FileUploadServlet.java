@@ -133,12 +133,10 @@ public class FileUploadServlet extends HttpServlet {
 
         request.setAttribute("principalUserName", username);
 
-        /**
-         * *********************************************************************************************************************
-         */
+        //Create user from DB using the username, store file path in db
         UserDao userDao = new UserDao();
-        User user = userDao.getUser(0);
-        UserFile userFile = new UserFile(0, "test/original/file/path", "test/modified/file/path", "testFileName", 0, user);
+        User user = userDao.getUserByName(username);
+        UserFile userFile = new UserFile(0, sRootPath, "test/modified/file/path", "testFileName", 0, user);
 
         UserFilesDao userFilesDao = new UserFilesDao();
 
@@ -151,13 +149,6 @@ public class FileUploadServlet extends HttpServlet {
         request.setAttribute("fileContents", items);
         getServletContext().getRequestDispatcher("/done.jsp").forward(
                 request, response);
-
-
-
-
-
-
-
 
     }
 

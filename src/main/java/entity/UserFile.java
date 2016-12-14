@@ -26,6 +26,7 @@ public class UserFile {
         //this.userId = userId;
         this.originalFileLocation = originalFileLocation;
         this.modifiedFileLocation = modifiedFileLocation;
+        this.fileName = fileName;
         this.isDeleted = isDeleted;
         this.user = user;
     }
