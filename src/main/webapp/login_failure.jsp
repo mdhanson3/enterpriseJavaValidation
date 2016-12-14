@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <jsp:include page="/templates/head-details.jsp"/>
 </head>
 <body>
+<div class="page-container">
+<div>
+    <jsp:include page="/templates/nav-bar-logged-in.jsp" />
+</div>
 Login error.
+</div>
 </body>
 </html>

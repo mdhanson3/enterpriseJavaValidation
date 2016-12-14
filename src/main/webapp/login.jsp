@@ -8,19 +8,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <jsp:include page="/templates/head-details.jsp"/>
 </head>
+
 <body>
-Dis where you login
+<div class="page-container">
+<jsp:include page="templates/nav-bar-logged-in.jsp"/>
+
 
 
 <FORM ACTION="j_security_check" METHOD="POST">
     <TABLE>
-        <TR><TD>entity.User name: <INPUT TYPE="TEXT" NAME="j_username">
+        <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
         <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
         <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
     </TABLE>
 </FORM>
 
+<div>
+    <h4>Don't have an account? <button><a href="signup.jsp">Sign Up</a></button></h4>
+</div>
+</div>
 </body>
 </html>

@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
  */
 public class UserFilesDaoTest {
 
+
     private final Logger log = Logger.getLogger(this.getClass());
     public User user;
     public UserDao userDao;
@@ -50,5 +51,20 @@ public class UserFilesDaoTest {
         } else {
             log.debug("Test list is empty.");
         }
+    }
+
+    @Test
+    public void deleteUserFile() throws Exception {
+        UserFilesDao userFilesDao = new UserFilesDao();
+        UserFile userFile = userFilesDao.getUserFile(10);
+
+        System.out.println(userFile.getOriginalFileLocation());
+        System.out.println(userFile.getId());
+        System.out.println(userFile.getIsDeleted());
+
+        userFilesDao.deleteUserFile(userFile);
+
+        System.out.println("After update is delted: " + userFile.getIsDeleted());
+
     }
 }

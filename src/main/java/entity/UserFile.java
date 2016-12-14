@@ -14,18 +14,18 @@ public class UserFile {
     private int id;
     //private int userId;
     private String originalFileLocation;
-    private String modifiedFileLocation;
+    private String modifiedFileContent;
     private String fileName;
     private int isDeleted;
     private User user;
 
     public UserFile(){}
 
-    public UserFile(int id, /*int userId,*/ String originalFileLocation, String modifiedFileLocation, String fileName, int isDeleted, User user){
+    public UserFile(int id, /*int userId,*/ String originalFileLocation, String modifiedFileContent, String fileName, int isDeleted, User user){
         this.id = id;
         //this.userId = userId;
         this.originalFileLocation = originalFileLocation;
-        this.modifiedFileLocation = modifiedFileLocation;
+        this.modifiedFileContent = modifiedFileContent;
         this.fileName = fileName;
         this.isDeleted = isDeleted;
         this.user = user;
@@ -61,12 +61,12 @@ public class UserFile {
     }
 
     @Basic
-    @Column(name = "modified_file_location", nullable = true)
-    public String getModifiedFileLocation() {
-        return modifiedFileLocation;
+    @Column(name = "modified_file_content", nullable = true)
+    public String getModifiedFileContent() {
+        return modifiedFileContent;
     }
-    public void setModifiedFileLocation(String modifiedFileLocation) {
-        this.modifiedFileLocation = modifiedFileLocation;
+    public void setModifiedFileContent(String modifiedFileContent) {
+        this.modifiedFileContent = modifiedFileContent;
     }
 
     @Basic

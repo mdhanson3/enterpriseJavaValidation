@@ -9,25 +9,28 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css">
 
-    <title>Java Validation</title>
+    <jsp:include page="/templates/head-details.jsp"/>
 </head>
 <body>
+
+<div class="page-container">
+
+
+<div>
+    <jsp:include page="/templates/nav-bar-logged-in.jsp" />
+</div>
 <div class="errorMessage">
     ${errorMessage}
 </div>
-<div>
+<div class="page-body">
     Select a file to upload: <br />
     <form method="POST" action="../FileUploadServlet" enctype="multipart/form-data" >
         <input type="file" name="file" id="file" /> <br/>
         <br />
-        <input type="submit" value="Upload" name="upload" id="upload" />
+        <button class="btn btn-lg btn-primary" type="submit" value="Upload" name="upload" id="upload">Upload</button>
     </form>
+</div>
 </div>
 </body>
 </html>

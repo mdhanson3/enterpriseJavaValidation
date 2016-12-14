@@ -8,15 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>entity.User Sign Up</title>
+    <jsp:include page="/templates/head-details.jsp"/>
 </head>
 <body>
+<div class="page-container">
+<div>
+    <jsp:include page="/templates/nav-bar-logged-in.jsp" />
+</div>
+    <div class="page-body">
 <form action="/createUser" method="post">
     User Name:<br>
     <input type="text" name="userName"><br>
     Password:<br>
     <input type="password" name="password"> <br /> <br />
-    <input type="submit" value="Create User">
+    <button class="btn btn-lg btn-primary" type="submit" value="Create User">Create User</button>
 </form>
+</div>
+</div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package javaValidation;
 
+import org.apache.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
  *
  */
 public class FileParserWeb {
+    private final Logger log = Logger.getLogger(this.getClass());
     private String filePath;
     private List<String> fileContents;
 
@@ -26,11 +29,9 @@ public class FileParserWeb {
                 fileContents.add(input.readLine());
             }
         } catch (java.io.FileNotFoundException fnfe) {
-            System.out.println("Failed to read input file");
-            fnfe.printStackTrace();
+            log.error("Failed to read input file");
         } catch (Exception exception) {
-            System.out.println("General Error");
-            exception.printStackTrace();
+            log.error("General Error");
         }
     }
 

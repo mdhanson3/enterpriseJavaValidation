@@ -32,6 +32,24 @@ public class UserFilesDao {
         return fileList;
     }
 
+    public void deleteUserFile(UserFile userFile) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction transaction = null;
+        userFile.setIsDeleted(1);
+
+        try {
+            transaction = session.beginTransaction();
+            session.update(userFile);
+            transaction.commit();
+
+        } catch (HibernateException e) {
+            if (transaction!=null) transaction.rollback();
+            log.error(e);
+        } finally {
+            session.close();
+        }
+    }
+
     public int addUserFile(UserFile userFile) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;

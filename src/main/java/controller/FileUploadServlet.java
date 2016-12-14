@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import entity.User;
 import entity.UserFile;
 import javaValidation.FileParserWeb;
+import javaValidation.Validation.FileValidator;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -46,9 +47,10 @@ public class FileUploadServlet extends HttpServlet {
 
         String sRootPath = "/home/student/Documents/WebApplication";
         String fileName = "defaultFileName";
+        String fileContent = "";
         // Check that we have a file upload request
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-        //FileValidator validator = new FileValidator();
+        FileValidator validator = new FileValidator();
 
 
         if (!isMultipart) {
@@ -117,9 +119,9 @@ public class FileUploadServlet extends HttpServlet {
                     log.error("File write error: " + e.toString());
                     e.printStackTrace();
                 }
-/*
+
                 try {
-                    validator.runValidation(args);
+                    fileContent = validator.runValidation(args);
                 } catch(Exception e) {
                     System.out.println("CAUGHT ERROR");
                     e.printStackTrace();
@@ -127,7 +129,7 @@ public class FileUploadServlet extends HttpServlet {
                     getServletContext().getRequestDispatcher("/index.jsp").forward(
                             request, response);
                 }
-*/
+
                 request.setAttribute("type", contentType);
 
             }
@@ -146,7 +148,7 @@ public class FileUploadServlet extends HttpServlet {
 
         //Create user from DB using the username, store file path in db
 
-        UserFile userFile = new UserFile(0, sRootPath, "test/modified/file/path", fileName, 0, user);
+        UserFile userFile = new UserFile(0, sRootPath, fileContent, fileName, 0, user);
 
         UserFilesDao userFilesDao = new UserFilesDao();
 
@@ -156,7 +158,8 @@ public class FileUploadServlet extends HttpServlet {
          * *********************************************************************************************************************
          */
 
-        request.setAttribute("fileContents", items);
+        request.setAttribute("fileName", fileName);
+        request.setAttribute("fileContents", fileContent);
         getServletContext().getRequestDispatcher("/done.jsp").forward(
                 request, response);
 

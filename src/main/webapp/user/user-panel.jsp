@@ -10,17 +10,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>entity.User Panel</title>
+    <jsp:include page="/templates/head-details.jsp"/>
 </head>
 <body>
+<div class="page-container">
+
+
+<div>
+    <jsp:include page="/templates/nav-bar-logged-in.jsp" />
+</div>
 <div><p>List of Files:</p></div>
-<div class="fileListSection">
+<div class="page-body">
+    <table>
 
     <c:forEach items="${fileList}" var="file">
-        <div>
-            <p>${file.fileName}</p>
-        </div>
+
+            <tr><td><a href="/ViewFile?fileId=${file.id}">${file.fileName}</a></td>
+                <td><form method="POST" action="../RemoveFile" >
+                    <input type="hidden" value="${file.id}" name="fileId" />
+                    <input class="btn" type="submit" value="Delete" />
+                </form></td>
+            </tr>
+
     </c:forEach>
+    </table>
+</div>
 </div>
 </body>
 </html>
