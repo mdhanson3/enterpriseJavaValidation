@@ -34,12 +34,14 @@ public class UserDaoTest {
 
     @Test
     public void addUser() throws Exception {
+        /*
         UserDao userDao = new UserDao();
         User user = new User(0, "TestUser9", "TestPass9");
 
         int id = userDao.addUser(user);
 
         log.info("Created user with id: " + id);
+        */
     }
 
 

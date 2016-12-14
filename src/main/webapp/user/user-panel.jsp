@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   entity.User: student
@@ -11,6 +13,14 @@
     <title>entity.User Panel</title>
 </head>
 <body>
-    List of files
+<div><p>List of Files:</p></div>
+<div class="fileListSection">
+
+    <c:forEach items="${fileList}" var="file">
+        <div>
+            <p>${file.fileName}</p>
+        </div>
+    </c:forEach>
+</div>
 </body>
 </html>

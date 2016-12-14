@@ -31,6 +31,7 @@
     <web-resource-collection>
       <web-resource-name>user</web-resource-name>
       <url-pattern>/user/*</url-pattern>
+      <url-pattern>/fileDisplay</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>user</role-name>

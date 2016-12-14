@@ -22,6 +22,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.output.*;
+import org.apache.log4j.Logger;
 import persistence.UserDao;
 import persistence.UserFilesDao;
 
@@ -35,6 +36,7 @@ import persistence.UserFilesDao;
  */
 public class FileUploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private final Logger log = Logger.getLogger(this.getClass());
 
     private static final String DATA_DIRECTORY = "data";
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
@@ -43,6 +45,7 @@ public class FileUploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String sRootPath = "/home/student/Documents/WebApplication";
+        String fileName = "defaultFileName";
         // Check that we have a file upload request
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         //FileValidator validator = new FileValidator();
@@ -51,6 +54,21 @@ public class FileUploadServlet extends HttpServlet {
         if (!isMultipart) {
             return;
         }
+
+        //Get username
+        String username = "Principal was null.";
+        Principal principal = request.getUserPrincipal();
+        if(principal != null) {
+            username = principal.getName();
+        }
+
+        request.setAttribute("principalUserName", username);
+
+        UserDao userDao = new UserDao();
+        User user = userDao.getUserByName(username);
+
+        sRootPath += "/" + user.getId();
+
 
         /*
          *  http://commons.apache.org/proper/commons-fileupload/using.html
@@ -83,7 +101,7 @@ public class FileUploadServlet extends HttpServlet {
             if (!item.isFormField()) {
 
                 String fieldName = item.getFieldName();
-                String fileName = item.getName();
+                fileName = item.getName();
                 String contentType = item.getContentType();
                 boolean isInMemory = item.isInMemory();
                 long sizeInBytes = item.getSize();
@@ -96,7 +114,7 @@ public class FileUploadServlet extends HttpServlet {
                 try {
                     item.write(file);
                 } catch(Exception e) {
-                    System.out.println("File write error: " + e.toString());
+                    log.error("File write error: " + e.toString());
                     e.printStackTrace();
                 }
 /*
@@ -124,19 +142,11 @@ public class FileUploadServlet extends HttpServlet {
         //System.out.println(items);
 
 
-        //Get username
-        String username = "Principal was null.";
-        Principal principal = request.getUserPrincipal();
-        if(principal != null) {
-            username = principal.getName();
-        }
 
-        request.setAttribute("principalUserName", username);
 
         //Create user from DB using the username, store file path in db
-        UserDao userDao = new UserDao();
-        User user = userDao.getUserByName(username);
-        UserFile userFile = new UserFile(0, sRootPath, "test/modified/file/path", "testFileName", 0, user);
+
+        UserFile userFile = new UserFile(0, sRootPath, "test/modified/file/path", fileName, 0, user);
 
         UserFilesDao userFilesDao = new UserFilesDao();
 

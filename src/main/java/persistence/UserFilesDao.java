@@ -28,7 +28,7 @@ public class UserFilesDao {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(UserFile.class);
 
-        List<UserFile> fileList = (List<UserFile>) criteria.add(Restrictions.eq("user", user)).list();
+        List<UserFile> fileList = (List<UserFile>) criteria.add(Restrictions.eq("user", user)).add(Restrictions.eq("isDeleted", 0)).list();
         return fileList;
     }
 

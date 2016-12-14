@@ -39,5 +39,8 @@ public class CreateUser extends HttpServlet {
             System.out.println("User ID returned from add: " + id);
         }
 
+        getServletContext().getRequestDispatcher("/index.jsp").forward(
+                req, resp);
+
     }
 }
