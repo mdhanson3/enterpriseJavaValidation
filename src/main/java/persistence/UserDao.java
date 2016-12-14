@@ -56,7 +56,7 @@ public class UserDao {
             session.close();
         }
 
-        return (int) userId;
+        return  userId;
         //return 0;
     }
 

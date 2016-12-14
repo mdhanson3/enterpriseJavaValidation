@@ -35,7 +35,7 @@ public class webservice extends HttpServlet {
         WebTarget target = client.target("https://httpbin.org/get");
         String stringResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
         JSONObject obj ;
-        String origin = "Couldn't get IP Adress";
+        String origin = "Couldn't get IP Address";
         try{
              obj = new JSONObject(stringResponse);
             //JSONArray data = obj.getJSONArray("origin");
