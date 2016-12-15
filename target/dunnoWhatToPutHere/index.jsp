@@ -11,7 +11,7 @@
 
     <div class="page-body">
         <h2>Hi Java People</h2>
-        <p>Navigate using the nav-bar or click here for <a href="webservice.jsp">quick validation</a></p>
+        <p>Navigate using the nav-bar or click here to <a href="${pageContext.request.contextPath}/webserviceservlet">check your ip address.</a></p>
     </div>
 </div>
 </body>

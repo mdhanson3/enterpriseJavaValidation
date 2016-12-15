@@ -16,7 +16,7 @@
     <jsp:include page="/templates/nav-bar-logged-in.jsp" />
 </div>
     <div class="page-body">
-<form action="/createUser" method="post">
+<form action="${pageContext.request.contextPath}/createUser" method="post">
     User Name:<br>
     <input type="text" name="userName"><br>
     Password:<br>

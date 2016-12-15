@@ -19,7 +19,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}signup.jsp">Sign Up</a></li>
+                <li><a href="${pageContext.request.contextPath}/signup.jsp">Sign Up</a></li>
                 <li ><a href="${pageContext.request.contextPath}/SignOut">Sign Out</a></li>
 
             </ul>
