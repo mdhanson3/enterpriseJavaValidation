@@ -12,7 +12,9 @@ import org.hibernate.criterion.Restrictions;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 /**
+ * This class runs the CRUD operations for users
  *
+ * @author Mitchell Hanson
  */
 public class UserDao {
 
@@ -36,7 +38,7 @@ public class UserDao {
     public int addUser(User user) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
-        Integer userId = null;
+        Integer userId = 0;
         log.info("User id before session save: " + user );
 
         try {
@@ -58,6 +60,10 @@ public class UserDao {
 
         return  userId;
         //return 0;
+    }
+
+    private void removeUser(User user){
+
     }
 
     private UsersRoles createUserRole(User user) {

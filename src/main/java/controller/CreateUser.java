@@ -13,7 +13,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by student on 12/12/16.
+ * This class creates a user in the database
+ *
+ * @author Mitchell Hanson
  */
 
 @WebServlet(name = "CreateUser", urlPatterns = {"/createUser"})

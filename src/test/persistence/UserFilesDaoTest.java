@@ -64,7 +64,6 @@ public class UserFilesDaoTest {
 
         userFilesDao.deleteUserFile(userFile);
 
-        System.out.println("After update is delted: " + userFile.getIsDeleted());
 
     }
 }

@@ -6,7 +6,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 /**
- * Created by student on 12/12/16.
+ * This class makes a session for sql connections
+ *
+ * @author Mitchell Hanson
  */
 public class SessionFactoryProvider {
     private static SessionFactory sessionFactory;

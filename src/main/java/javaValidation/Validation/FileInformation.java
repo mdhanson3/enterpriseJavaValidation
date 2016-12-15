@@ -60,6 +60,12 @@ public class FileInformation {
 
     }
 
+    /**
+     * makes a deep copy of a list
+     *
+     * @param list list to make a copy of
+     * @return a copy of te list
+     */
     private List<String> deepCopy(List<String> list) {
         List<String> newList = new ArrayList<>();
 

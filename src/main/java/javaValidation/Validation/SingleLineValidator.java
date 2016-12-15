@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * Created by student on 2/10/16.
- */
+
 public class SingleLineValidator {
     private FileInformation fileInformation;
     private List<String> fileContents;

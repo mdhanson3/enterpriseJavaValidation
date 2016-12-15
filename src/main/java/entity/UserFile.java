@@ -5,7 +5,9 @@ import com.sun.management.VMOption;
 import javax.persistence.*;
 
 /**
+ * This class represents the data of a user file
  *
+ * @author Mitchell Hanson
  */
 
 @Entity

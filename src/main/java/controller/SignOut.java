@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by student on 12/14/16.
+ * This servlet invalidates the session
  */
 @WebServlet(name = "SignOut", urlPatterns = { "/SignOut" })
 public class SignOut extends HttpServlet {

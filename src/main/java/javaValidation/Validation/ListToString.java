@@ -3,10 +3,18 @@ package javaValidation.Validation;
 import java.util.List;
 
 /**
- * Created by student on 12/14/16.
+ * This class appends each item in a list to a string
+ *
+ * @author Mitchell Hanson
  */
 public class ListToString {
 
+    /**
+     * Transforms a list into a single string
+     *
+     * @param list list of strings
+     * @return string of all list items appended together
+     */
     public String convertListToString(List<String> list) {
         String fileString = "";
 

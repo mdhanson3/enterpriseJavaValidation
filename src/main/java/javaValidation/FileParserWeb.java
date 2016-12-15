@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class saves a file's contents to a list
  *
+ * @author Mitchell Hanson
  */
 public class FileParserWeb {
     private final Logger log = Logger.getLogger(this.getClass());
@@ -36,7 +38,7 @@ public class FileParserWeb {
     }
 
     /**
-     * returns fileContetns List
+     * returns fileContents List
      *
      * @return List of strings that corresponds to each line of the class's file
      */

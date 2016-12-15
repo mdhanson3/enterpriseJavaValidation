@@ -274,6 +274,12 @@ public class QuoteAndCommentReplacer {
         }
     }
 
+    /**
+     * builds a string of periods (.) that spans the passed indices
+     * @param startIndex opening index
+     * @param endIndex ending index
+     * @return string of dots
+     */
     private String buildDots(int startIndex, int endIndex) {
         String dots = "";
         for (int i = 0; i < (endIndex - startIndex); i ++) {

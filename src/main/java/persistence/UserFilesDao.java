@@ -12,7 +12,9 @@ import org.hibernate.criterion.Restrictions;
 import java.util.List;
 
 /**
+ * This class runs the CRUD operations for UserFiles
  *
+ * @author Mitchell Hanson
  */
 public class UserFilesDao {
 

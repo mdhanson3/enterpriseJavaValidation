@@ -3,13 +3,19 @@ package javaValidation.Validation;
 import java.util.List;
 
 /**
- * Created by student on 4/20/16.
+ * This class adds html text to strings to format the output
+ *
+ * @author Mitchell Hanson
  */
 public class TextTransform {
     private final String OPENING_SPAN = "<span class=\"";
     private final String OPENING_SPAN_CLOSE = " highlighted\">";
     private final String CLOSING_SPAN = "</span>";
 
+    /**
+     * Converts spaces to non-breaking spaces
+     * @param contents string of contents
+     */
     public void convertSpacesToHtmlNbs(List<String> contents) {
 
         for (int lineNumber = 0; lineNumber < contents.size(); lineNumber ++) {
@@ -19,6 +25,12 @@ public class TextTransform {
         }
     }
 
+    /**
+     * Add underline spans where dictated by an error list
+     * @param contents List of strings representing a file
+     * @param errorList list of SingleLineErrors
+     * @return updated contents
+     */
     public List<String> augmentContentsWithUnderlines(List<String> contents, List<SingleLineError> errorList) {
         for(SingleLineError error : errorList) {
             if (error.isCanBeUnderlined()) {
@@ -30,6 +42,11 @@ public class TextTransform {
         return contents;
     }
 
+    /**
+     * Adds html to mark up constants
+     * @param error an error
+     * @param contents list of strings representing file contents
+     */
     private void transformConstant(SingleLineError error, List<String> contents) {
 
         // Get indices to underline

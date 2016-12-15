@@ -19,8 +19,11 @@ public class FileValidator {
     private String fileName;
 
 
-    /* TODO: allow arguments array to be greater than one and run validation on every arg
-     * consider using 'throws' to skip over files that cause any errors (handle by outputting error or whatever)
+    /**
+     * Searches for errors in java code and creates highlighted html output
+     *
+     * @param arguments String array of one element containing file path to validate
+     * @return an html string that shows validated code
      */
     public String runValidation(String[] arguments) {
         // Check number of args

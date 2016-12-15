@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.security.Principal;
 
 /**
- * Created by student on 12/14/16.
+ * This class marks a file in the database as removed
+ *
+ * @author Mitchell Hanson
  */
 @WebServlet(name = "RemoveFile", urlPatterns = { "/RemoveFile" })
 public class RemoveFile extends HttpServlet {

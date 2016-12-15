@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by student on 2/10/16.
+ * This class finds validation errors that span multiple lines
+ *
+ * @author Mitchell Hanson
  */
 public class MultiLineValidator {
     private final Logger log = Logger.getLogger(this.getClass());
@@ -21,11 +23,18 @@ public class MultiLineValidator {
         filePath = path;
     }
 
+    /**
+     * kicks off the multi-line validation
+     */
     public void runMultiLineValidation() {
         multiLineErrors.add(lineCount());
         multiLineErrors.add(javadocErrors());
     }
 
+    /**\
+     * Counts the lines in a file
+     * @return number of lines in a file
+     */
     private String lineCount() {
         int count = 0;
         try (BufferedReader input = new BufferedReader(new FileReader(filePath))) {

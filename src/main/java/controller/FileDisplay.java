@@ -15,7 +15,9 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * Created by student on 12/13/16.
+ * This class gets all files from the database for a particular user and sends them to a jsp
+ *
+ * @author Mitchell Hanson
  */
 @WebServlet(name = "FileDisplay", urlPatterns = { "/fileDisplay" })
 public class FileDisplay extends HttpServlet {

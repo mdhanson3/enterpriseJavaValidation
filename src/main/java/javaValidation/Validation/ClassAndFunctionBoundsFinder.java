@@ -58,9 +58,15 @@ public class ClassAndFunctionBoundsFinder {
         }
 
         findFunctionBounds();
-        printFunctionBounds();
+
     }
 
+    /**
+     * Saves the bounds of classes if a set of opening and closing brackets are found
+     *
+     * @param lineNumber line number of the file to ceck
+     * @param lineText the text of line to look for curly braces in
+     */
     private void findClassBounds(int lineNumber, String lineText) {
         if (!foundClassBounds) {
             if (foundOpeningClassLine) {
@@ -86,6 +92,9 @@ public class ClassAndFunctionBoundsFinder {
         }
     }
 
+    /**
+     * This method finds the functions bounds with a list of strings representing a file
+     */
     private void findFunctionBounds() {
         // Check lines within class bounds for function bounds
         // It seems like the index should start at openingClassLine + 1, but line numbers are one greater than the index of the array
@@ -122,7 +131,4 @@ public class ClassAndFunctionBoundsFinder {
         }
     }
 
-    private void printFunctionBounds() {
-
-    }
 }

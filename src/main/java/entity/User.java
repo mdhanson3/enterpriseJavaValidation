@@ -5,7 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
- * Created by student on 12/3/16.
+ * This class represents the data of a user
+ *
+ * @author Mitchell Hanson
  */
 @Entity
 @Table(name = "USERS_WITH_ID", schema = "individualWebApp")

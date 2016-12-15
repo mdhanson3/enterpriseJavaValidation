@@ -33,7 +33,9 @@ import persistence.UserFilesDao;
 )
 
 /**
- * Created by student on 7/20/16.
+ * This class uploads file information to the database
+ *
+ * @author Mitchell Hanson
  */
 public class FileUploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

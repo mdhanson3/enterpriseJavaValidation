@@ -22,7 +22,9 @@ import org.json.JSONObject;
 
 
 /**
- * Created by student on 12/14/16.
+ * This servlet calls a web service to display the ip address of the user
+ *
+ * @author Mitchell Hanson
  */
 @WebServlet(name = "webservice", urlPatterns = {"/webserviceservlet"})
 public class webservice extends HttpServlet {

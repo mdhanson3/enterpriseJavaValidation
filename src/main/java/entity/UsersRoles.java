@@ -3,7 +3,9 @@ package entity;
 import javax.persistence.*;
 
 /**
- * Created by student on 12/12/16.
+ * This class represents the data of a user role
+ *
+ * @author Mitchell Hanson
  */
 
 @Entity

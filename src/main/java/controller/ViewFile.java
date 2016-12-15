@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by student on 12/14/16.
+ * This servlet gets display information for a file
+ *
+ * @author Mitchell Hanson
  */
 @WebServlet(name = "ViewFile", urlPatterns = { "/ViewFile" })
 public class ViewFile extends HttpServlet {

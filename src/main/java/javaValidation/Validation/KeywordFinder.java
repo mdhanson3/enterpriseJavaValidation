@@ -34,6 +34,11 @@ public class KeywordFinder {
 
     }
 
+    /**
+     * Gets a list of keywords
+     *
+     * @return list of keywords
+     */
     public List<KeywordInstance> getKeywords() {
         return keywords;
     }
@@ -61,11 +66,23 @@ public class KeywordFinder {
 
     }
 
+    /**
+     * finds keywords in a list of strings and stores their location
+     *
+     * @param content list of strings representing file lines
+     */
     private void findKeywords(List<String> content) {
         for(int lineNumber = 0; lineNumber < content.size(); lineNumber ++ ) {
             findKeywordsInLine(lineNumber, content.get(lineNumber));
         }
     }
+
+    /**
+     * Finds a keyword in a line of text
+     *
+     * @param lineNumber the line number of the text
+     * @param lineText text of the line corresponding to the line number
+     */
     private void findKeywordsInLine(int lineNumber, String lineText) {
         if (checkKeyword(lineNumber, lineText, " else if")) {
 
@@ -78,6 +95,14 @@ public class KeywordFinder {
 
     }
 
+    /**
+     * Adds keyword and line number to a list if found
+     *
+     * @param lineNumber line number
+     * @param lineText text corresponding to the line number
+     * @param keyword the keyword to look for
+     * @return  whether the keyword was found
+     */
     private boolean checkKeyword(int lineNumber, String lineText, String keyword) {
         if (lineText.contains(keyword)) {
             keywords.add(new KeywordInstance(lineNumber + 1, keyword));
@@ -87,6 +112,11 @@ public class KeywordFinder {
         return false;
     }
 
+    /**
+     * Finds instance variables and constants
+     * @param boundsFinder object holding class bounds
+     * @param contents list of strings representing a file
+     */
     private void findInstanceVariablesAndConstants(ClassAndFunctionBoundsFinder boundsFinder, List<String> contents) {
         FunctionBounds classBounds =  boundsFinder.getClassBounds();
         FunctionBounds firstFunctionBounds = boundsFinder.getFirstFunctionBounds();
@@ -102,6 +132,11 @@ public class KeywordFinder {
         }
     }
 
+    /**
+     * Looks for variables and constants in a string and adds it to a list if found
+     * @param lineNumber line number
+     * @param lineContent content of the line
+     */
     private void variableOrConstantCheck(int lineNumber, String lineContent) {
         if (lineContent.contains(" final ")) {
             keywords.add(new KeywordInstance(lineNumber + 1, "constant"));
@@ -110,8 +145,9 @@ public class KeywordFinder {
         }
     }
 
-    // TODO:  Will catch var names with 'public' in them.  Originally was looking for ' public' but that missed
-    // any public variables that started as the first character in the line
+    /**
+     * Looks for the public keyword in front of variables and adds it to the keyword list if found
+     */
     private void publicCheck(int lineNumber, String lineContent) {
         if (lineContent.contains("public ")) {
             keywords.add(new KeywordInstance(lineNumber + 1, "public"));
