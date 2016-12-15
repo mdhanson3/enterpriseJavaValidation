@@ -13,14 +13,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/index.jsp">Home</a></li>
-                <li><a href="/fileDisplay">View Files</a></li>
-                <li><a href="/user/fileUpload.jsp">Upload File</a></li>
+                <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/fileDisplay">View Files</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/fileUpload.jsp">Upload File</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="signup.jsp">Sign Up</a></li>
-                <li ><a href="/SignOut">Sign Out</a></li>
+                <li><a href="${pageContext.request.contextPath}signup.jsp">Sign Up</a></li>
+                <li ><a href="${pageContext.request.contextPath}/SignOut">Sign Out</a></li>
 
             </ul>
         </div><!--/.nav-collapse -->
